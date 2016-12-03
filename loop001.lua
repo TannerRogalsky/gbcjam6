@@ -17,13 +17,14 @@ local mesh = g.newMesh({
 local function inQuad(t, b, c, d) return c * math.pow(t / d, 2) + b end
 local function inQuint(t, b, c, d) return c * math.pow(t / d, 5) + b end
 
-return function(cycle_ratio)
+return function(cycle_ratio, beat)
+  beat = math.pow(beat, 8)
   local width, height = g.getDimensions()
 
   g.push('all')
   g.rotate(-cycle_ratio * pi * 2)
 
-  g.scale(1 + pow(sin(cycle_ratio * pi * 4), 16) / 10)
+  g.scale(1 + beat / 5)
 
   for i=0,num-1 do
     local armIndex = i % arms

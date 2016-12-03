@@ -18,6 +18,7 @@ local function inQuad(t, b, c, d) return c * math.pow(t / d, 2) + b end
 local function inQuint(t, b, c, d) return c * math.pow(t / d, 5) + b end
 
 return function(cycle_ratio, beat)
+  beat = math.pow(beat, 8)
   local width, height = g.getDimensions()
 
   g.push('all')

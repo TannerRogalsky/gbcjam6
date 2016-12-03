@@ -44,12 +44,12 @@ function Main:draw()
   local cycle_ratio = cycle / CYCLE_LENGTH
 
   local bpm = 96 / (60 / CYCLE_LENGTH)
-  local beat = math.pow(math.sin(cycle_ratio * math.pi * bpm), 16)
+  local beat = math.pow(math.sin(cycle_ratio * math.pi * bpm), 2)
 
   local loop = loops[loop_index]
 
   g.setShader(blurShader)
-  blurShader:send('direction', {1 + beat, 0})
+  blurShader:send('direction', {1 + math.pow(beat, 8), 0})
   g.setColor(255, 255, 255)
   g.draw(loop.bg, -width / 2, -height / 2)
   g.setShader()
