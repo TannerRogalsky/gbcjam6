@@ -29,6 +29,7 @@ beholder = require("lib.beholder")
 Grid = require("lib.grid")
 Line = require("lib.line")
 Boid = require("lib.boid")
+hsl2rgb = require("lib.hsl")
 
 Base = require("base")
 Game = require("game")
